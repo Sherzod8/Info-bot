@@ -1,0 +1,63 @@
+# Uzbek translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-12-25 12:02+0500\n"
+"PO-Revision-Date: 2021-12-25 12:02+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uz\n"
+"Language-Team: uz <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: handlers/users/echo.py:10
+msgid "Noto‘g‘ri xabar yuborildi"
+msgstr ""
+
+#: handlers/users/help.py:9
+msgid "Buyruqlar: "
+msgstr ""
+
+#: handlers/users/help.py:10
+msgid "/start - Botni ishga tushirish"
+msgstr ""
+
+#: handlers/users/help.py:11
+msgid "Agar bot bilan xatolik sodir bo‘lsa /start buyrug'idan foydalaning"
+msgstr ""
+
+#: handlers/users/mainHandler.py:43
+msgid "<b>Iltimos, o’zingizga qulay bo’lgan IT-Markazini tanlang.</b>"
+msgstr ""
+
+#: handlers/users/mainHandler.py:386
+msgid "Kiritgan ma'lumotingiz mos kelmadi"
+msgstr ""
+
+#: handlers/users/mainHandler.py:489 handlers/users/mainHandler.py:492
+#: handlers/users/mainHandler.py:498 handlers/users/mainHandler.py:501
+#: handlers/users/mainHandler.py:518
+msgid ""
+"\n"
+"📃 F.I.SH.: {} \n"
+"⚧ Jinsi: {} \n"
+"👤 Yoshi: {}\n"
+"🏢 IT Center: {}\n"
+"🖥 Kurs: {}\n"
+"📞 Tel: +{}\n"
+"\n"
+"<a href='https://t.me/itpark_livechat'>Bizning kanal</a>"
+msgstr ""
+
+#: handlers/users/mainHandler.py:507
+msgid "Yosh chegarasi xato kiritildi"
+msgstr ""
+

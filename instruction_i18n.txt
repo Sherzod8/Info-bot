@@ -1,0 +1,21 @@
+Domain Nomi - Info_bot, Istagan ismni yozsa bolaveradi
+
+Birinchi martda ishga tushirish uchun
+1. Faylardan text larni olib chiqish uchun (ozi topadi)
+pybabel extract . -o locales/Info_bot.pot
+2. Ingliz tili uchun papka yaratish
+pybabel init -i locales/Info_bot.pot -d locales -D Info_bot -l en
+3. Rus tili uchun papka yaratish
+pybabel init -i locales/Info_bot.pot -d locales -D Info_bot -l ru
+4. Ozbek tili uchun papka yaratish
+pybabel init -i locales/Info_bot.pot -d locales -D Info_bot -l uz
+5. Matnlarni tarjimasini kirib bolgach ushbu kod blan yakunlaymiz
+pybabel compile -d locales -D Info_bot
+
+
+Tarjimalarni yangilash
+1. Faylardan text larni olib chiqib, Добавляем текст в переведенные версии
+pybabel extract . -o locales/Info_bot.pot
+pybabel update -d locales -D Info_bot -i locales/Info_bot.pot
+3. Matnlarni tarjimasini kirib bolgach ushbu kod blan yakunlaymiz
+pybabel compile -d locales -D Info_bot
