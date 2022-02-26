@@ -11,7 +11,7 @@ pybabel init -i locales/Info_bot.pot -d locales -D Info_bot -l ru
 pybabel init -i locales/Info_bot.pot -d locales -D Info_bot -l uz
 5. Matnlarni tarjimasini kirib bolgach ushbu kod blan yakunlaymiz
 pybabel compile -d locales -D Info_bot
-
+hghghh
 
 Tarjimalarni yangilash
 1. Faylardan text larni olib chiqib, Добавляем текст в переведенные версии
