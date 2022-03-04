@@ -18,7 +18,7 @@ from utils.db_api.database import DBcommands
 db = DBcommands()
 
 kurs_ru = ["Создание Android приложений","Backend программирование","Веб программирование","Графический и веб-дизайн","Мобильная робототехника","SMM-менеджер","Scratch + IT-English","IT-English"]
-kurs_uz = ["Android ilovalarni yaratish","Backend dasturlash","Web dasturlash","Grafik va web dizayn","Mobil robototexnika","SMM-menejer","Scratch + IT-English","IT-English"]
+kurs_uz = ["Android ilovalarni yaratish","Backend dasturlash","Web dasturlash","Grafik va web dizayn","Mobil robototexnika","SMM-mutaxassis","Scratch + IT-English","IT-English"]
 filial_ru = ["IT Park Tashkent","IT Center Mirzo-Ulug‘bek","IT Center Chilonzor","IT Center Sergeli","IT Center Yakkasaroy","IT Center Bektemir"]
 filial_uz = ["IT Park Tashkent","IT Center Mirzo-Ulug‘bek","IT Center Chilonzor","IT Center Sergeli","IT Center Yakkasaroy","IT Center Bektemir"]
 
@@ -31,14 +31,14 @@ async def main(call: types.CallbackQuery,state: FSMContext):
     if call.data=='courses':
         file_path = InputFile(path_or_bytesio=f'images/center/our_course.jpg')
         if user_l.language == 'uz':
-            await call.message.answer_photo(file_path,"🚀 Yuqori malakali IT mutaxassisi bo‘lishni, malakangizni oshirishni va ingliz tilida IT sohasini o‘rganishni istaysizmi? 🤔\n\n😎 Bizning yuqori malakali mentorlarimiz axborot texnologiyalarining barcha yo‘nalishlari bo‘yicha sizga zarur bilimlarni berishadi va sizning IT sohasida o‘z o‘rningizni topishda ko`maklashishadi.\n\n💥 Biz sizga zamonaviy qo‘llanmalar asosida o‘tiladigan kurslarimizni taqdim etamiz.\n\n⚡️ O‘zingizni qiziqtirgan yo‘nalish bo‘yicha kurslarimizni tanlang va ro‘yxatdan o‘ting.👇👇👇",reply_markup=courses)
+            await call.message.answer_photo(file_path,"🚀 Yuqori malakali IT-mutaxassis bo‘lishni, dasturlash tillarini o‘rganishni yoki IT-sohasida o‘z malakangizni oshirishni xohlaysizmi? Bunday holda, IT Center PRO`ning o‘quv kurslari, bu, ehtimol, siz uchun eng yaxshi va optimal yechim bo‘la oladi! 🤔\n\n💥 Bizning tajribali o‘qituvchilarimiz sizga IT-industriyasining barcha yo‘nalishlari bo‘yicha kerakli bo‘lgan bilim va ko‘nikmalarni berishadi va zamonaviy IT-kompaniyalarda munosib ish topishga ko‘maklashishadi.\n\n⚡️ O‘zingizni qiziqtirgan yo‘nalish bo‘yicha kurslarni tanlang va ro‘yxatdan o‘ting.👇👇👇",reply_markup=courses)
         else:
-            await call.message.answer_photo(file_path,"🚀 Хотите стать высококвалифицированным IT-специалистом, повышать свою квалификацию и изучать IT-индустрию на английском языке? 🤔\n\n😎 Наши высококвалифицированные наставники дадут вам необходимые знания во всех областях информационных технологий и помогут вам найти свое место в IT-индустрии. \n\n💥 Мы предоставляем вам знания в области IT на основе современных технологии.\n\n⚡️ Выберите курс по интересующему Вас направлению и зарегистрируйтесь по кнопке ниже 👇👇👇",reply_markup=coursesru)
+            await call.message.answer_photo(file_path,"🚀 Хотите стать высококвалифицированным IT-специалистом, изучать языки программарования или повысить свою квалификацию в IT-сфере? В таком случаи, курсы от IT Center PRO, это, пожалуй, лучшее и оптимальное решение для Вас! 🤔\n\n💥 Наши опытные наставники дадут Вам необходимые знания во всех направлениях IT-индустрии и помогут найти достойную работу в современных IT-компаниях.\n\n⚡️ Выберите курс по интересующему Вас направлению и зарегистрируйтесь по кнопке ниже 👇👇👇",reply_markup=coursesru)
         await call.answer(cache_time=0.02)
         await Anketa.course.set()
   
     elif call.data=='center':
-        file_path = InputFile(path_or_bytesio=f'images/center/1.jpg')
+        file_path = InputFile(path_or_bytesio=f'images/centers.jpg')
         if user_l.language == 'uz':
             await call.message.answer_photo(file_path,"📍 Iltimos, o‘zingizga qulay bo‘lgan <b>IT-Markaz</b>ni tanlang 👇",reply_markup=centerKey)
         else:
@@ -47,9 +47,9 @@ async def main(call: types.CallbackQuery,state: FSMContext):
     elif call.data=="about":
         file_path = InputFile(path_or_bytesio=f'images/center/about_us.jpg')
         if user_l.language == 'uz':
-            await call.message.answer_photo(file_path,"🏢 <b>IT Park Tashkent</b> 2021-yilda tashkil topgan bo‘lib, uning asosiy maqsadi - O‘zbekistonda IT sohasini rivojlantirish, IT-tadbirkorlik uchun zarur infratuzilmalarni yaratish, IT mutaxassislarini va IT kompaniyalarini qo‘llab-quvvatlash, istiqbolli startup loyihalarni ishga tushirish, shuningdek, dasturchilarni O‘zbekiston va jahon boziga tayyorlashdan iborat.\n\n🤔 Yuqori talabli IT-mutaxassis bo‘lishni xoxlaysimi?\n\n⚡️ Unda bizning kurslarimizdan birini tanlang va «Kursga yozilish» tugmasi orqali ro‘yxatdan o‘ting.\n\n🌐 IT Park Tashkent haqidagi soʻnggi yangiliklardan xabardor boʻling: 👇",reply_markup=join)
+            await call.message.answer_photo(file_path,"🏢 <b>IT Park Tashkent</b> 2021-yilda tashkil topgan bo‘lib, uning asosiy maqsadi - O‘zbekistonda IT sohasini rivojlantirish, IT-tadbirkorlik uchun zarur infratuzilmalarni yaratish, IT mutaxassislarni va IT kompaniyalarni qo‘llab-quvvatlash, istiqbolli startup loyihalarni ishga tushirish, shuningdek, dasturchilarni O‘zbekiston va jahon bozoriga tayyorlashdan iborat.\n\n🤔 Yuqori talabli IT-mutaxassis bo‘lishni xohlaysimi?\n\n⚡️ Unda bizning kurslarimizdan birini tanlang va «Kursga yozilish» tugmasi orqali ro‘yxatdan o‘ting.",reply_markup=join)
         else:    
-            await call.message.answer_photo(file_path,"🏢 <b>IT Park Tashkent</b> был основан в 2021 году.\n👨‍💻 Наша основная цель – развитие IT-сферы в Узбекистане, создание необходимой инфраструктуры, всестронная поддержка IT-компаний и IT-специалистов, запуск перспективных стартап-проектов, а также организация эффективного использования компьютерных технологий и интернета среди населения и молодежи.\n\n🤔 Хотите стать востребованным IT-специалистом?\n\n⚡️ Тогда записывайтесь на наши курсы с помощью кнопки «Записаться на курс» ниже.",reply_markup=joinru)
+            await call.message.answer_photo(file_path,"🏢 <b>IT Park Tashkent</b> был основан в 2021 году.\n👨‍💻 Наша основная цель – развитие IT-сферы в Узбекистане, создание необходимой инфраструктуры, всесторонняя поддержка IT-компаний и IT-специалистов, запуск перспективных стартап-проектов, а также организация эффективного использования компьютерных технологий и интернета среди населения и молодежи.\n\n🤔 Хотите стать востребованным IT-специалистом?\n\n⚡️ Тогда записывайтесь на наши курсы с помощью кнопки «Записаться на курс» ниже.",reply_markup=joinru)
     elif call.data=="connect":
         if user_l.language == 'uz':
             await call.message.answer("❗️Hurmatli do‘stlar, bizning faoliyatimiz bo‘yicha shikoyat, savol yoki takliflaringiz bo‘lsa, iltimos, ularni shu yerda yozib qoldiring.\n\n☎️ Qo‘shimcha ma`lumot uchun +998 90 178-00-03 yoki @mrsher8 ga murojaat qilishingiz mumkin.",reply_markup=back)
@@ -57,7 +57,7 @@ async def main(call: types.CallbackQuery,state: FSMContext):
             await call.message.answer("❗️Дорогие друзья, если у вас есть жалобы, вопросы или предложения касательно нашей деятельности, пожалуйста, оставьте их здесь.\n\n☎️ Подробная информация по телефону +998 90 178-00-03 или @mrsher8",reply_markup=backru)
         await Anketa.send.set()
     elif call.data=="1":
-        file_path = InputFile(path_or_bytesio=f'images/center/1.jpg')
+        file_path = InputFile(path_or_bytesio=f'images/centers.jpg')
         if user_l.language == 'uz':
             await call.message.answer_photo(file_path,"📍 Iltimos, o‘zingizga qulay bo‘lgan <b>IT-Markaz</b>ni tanlang 👇",reply_markup=centerKey)
         else:
@@ -126,9 +126,9 @@ async def course(call: CallbackQuery, state:FSMContext):
     user = types.User.get_current()
     user_l = await db.get_user(str(user.id))
     await call.message.delete()
-    data = call.data.split('_') 
+    data = call.data.split('_')
     ss = await state.get_data()
-    if ss.get('course'):
+    if ss.get('course'): #  and ss.get('center') qo'shildi
         if data[1]=='0':
             if user_l.language == 'uz':
                 await call.message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
@@ -139,12 +139,11 @@ async def course(call: CallbackQuery, state:FSMContext):
         if user_l.language == 'uz':
             await state.update_data({'center':filial_uz[int(data[1])-1]})
             id = ss.get('id')
-            print(id,'kurs') #Tugadi
-            file_path = InputFile(path_or_bytesio=f'images/{id}.jpg')
+            file_path = InputFile(path_or_bytesio=f'images/uz/{id}.jpg')
             if id=='1':
-                await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Android ilovalarini ishlab chiqing va uni Google Play`ga joylashtiring, hatto ilgari hech qachon dasturlashdan xabaringiz bo‘lmagan bo‘lsa ham. Kurs davomida, siz Java va Kotlin tillarini, jamoaviy ishlanmalarni, materiallar dizaynini sinov tamoyillarini o‘zlashtirasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 800 000 so‘m/oy.").format(kurs_uz[int(id)-1]),reply_markup=join)
+                await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Android ilovalarini ishlab chiqing va uni Google Play`ga joylashtiring, hatto ilgari hech qachon dasturlashdan xabaringiz bo‘lmagan bo‘lsa ham. Kurs davomida, siz Java va Kotlin tillarini, jamoaviy ishlanmalarni, materiallar dizaynini sinov tamoyillarini o‘zlashtirasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 1 000 000 so‘m/oy.").format(kurs_uz[int(id)-1]),reply_markup=join)
             elif id=='2':
-                await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Backend dasturchisi web-saytlar uchun backend yaratadi: so‘rovlarni qabul qiladigan, ma'lumotlar bazasi bilan aloqa o‘rnatadigan va ma'lumotlarni foydalanuvchiga uzatadigan dasturchidir. Dasturchi, saytning boshqa Internet xizmatlari bilan o‘zaro aloqasi uchun algoritmlarni ishlab chiqadi. Siz Python tilini o‘rganasiz: u talabga ega va sodda tildir. Shuningdek, siz eng muhim backend vositalarini o‘zlashtirasiz: Django, ma'lumotlar bazalari, git. O‘qitish jarayonida bir nechta operatsion xizmatlarni yaratasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 1 000 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Backend dasturchisi web-saytlar uchun backend yaratadi: so‘rovlarni qabul qiladigan, ma'lumotlar bazasi bilan aloqa o‘rnatadigan va ma'lumotlarni foydalanuvchiga uzatadigan dasturchidir. Dasturchi, saytning boshqa Internet xizmatlari bilan o‘zaro aloqasi uchun algoritmlarni ishlab chiqadi. Siz Python tilini o‘rganasiz: u talabga ega va sodda tildir. Shuningdek, siz eng muhim backend vositalarini o‘zlashtirasiz: Django, ma'lumotlar bazalari, GIT. O‘qitish jarayonida bir nechta operatsion xizmatlarni yaratasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 1 000 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
             elif id=='3':
                 await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Frontend dasturlash kursining maqsadi, web-ilovalarning vizual tomonini ishlab chiqish bilan tanishish, va junior dasturchi bo‘lish uchun zarur bo‘lgan to‘liq bilim va ko‘nikmalarni taqdim etishdir.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 800 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
             elif id=='4':
@@ -154,18 +153,17 @@ async def course(call: CallbackQuery, state:FSMContext):
             elif id=='6':
                 await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 SMM(Social media marketing) Kurs davomida sizga ijtimoiy tarmoqlarda brendni tanitish, kontent yaratish, va targeting kabi ko‘plab sohaga oid bilim va ko‘nikmalarga ega bo‘lish. Bundan tashqari, sizda real loyihalar bilan ishlab malaka oshirish imkoniyati mavjud bo‘ladi.\n\n📆 Kurs davomiyligi: 3 oy.\n\n💰 Kursning narxi: 1 000 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
             elif id=='7':
-                await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Siz ma'lumotlarni to‘plash va tahlil qilishni, ko‘plab ma'lumotlardan muhim ma'lumotlarni ajratib olishni o‘rganasiz: sharhlar, prognozlar, tadqiqot natijalari. Bu korxonalarga asosli qarorlar qabul qilishda yordam beradi: g‘oyalar yaratish, mahsulotlarni ishga tushirish, jarayonlarni yaxshilash, ishlab chiqishni rejalashtirish.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 600 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Scratch bolalarni dasturlashga olib kiradigan dasturdir. Oʻquvchilar ushbu dastur yordamida oʻzlarini vizual dasturlash muhitida sinab koʻrishadi. Qolaversa Scratch+IT English kursi ikki qismga boʻlinib, o’quvchilar darsning birinchi qismida Ingliz tilini, ikkinchi qismida Scratchni oʻrganishadilar. Dastur toʻliq amaliyotga asoslangan: har bir darsdan soʻng amaliy mashqlar, qiziqarli fikr-mulohazalarga boy boʻladi.\n\n📆 Kurs davomiyligi: 3 oy.\n\n💰 Kursning narxi: 1 000 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
             elif id=='8':
-                await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 IT-English kursi xalqaro miqyosida tan olingan standartlarga muvofiq, innovatsion usulda bo‘lib o‘tadi. Siz CEFR va IELTS imtihonlaridan muvaffaqiyatli o‘tishingiz uchun innovatsion tayyorgarlikka ega bo‘lasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 500 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 IT-English kursi xalqaro miqyosida tan olingan standartlarga muvofiq, innovatsion usulda bo‘lib o‘tadi. Siz CEFR va IELTS imtihonlaridan muvaffaqiyatli o‘tishingiz uchun innovatsion tayyorgarlikka ega bo‘lasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 460 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
             await call.answer(cache_time=0.02)
         else:
             await state.update_data(
-                {'center':filial_ru[int(data[1])-1]}
-                )
+                {'center':filial_ru[int(data[1])-1]})
             id = ss.get('id')
-            file_path = InputFile(path_or_bytesio=f'images/{id}.jpg')
+            file_path = InputFile(path_or_bytesio=f'images/ru/{id}.jpg')
             if data[1]=='1':
-                await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Разработайте Android-приложение и выложите его в Google Play, даже если никогда не программировали. Вы освоите языки Java и Kotlin, командную разработку, Material Design и принципы тестирования.\n\n📆 Продолжительность курса: 6 месяцев.\n\n💰 Стоимость курса: 800 000 сум/месяц.").format(kurs_ru[int(id)-1]),reply_markup=joinru)
+                await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Android — самая популярная мобильная платформа в мире.\n\nAndroid-разработчики нужны в разных сферах: сделать онлайн-банкинг со сложной степенью защиты или приложение для интернет-магазина, разработать приложения для изучения английского языка или мобильный сервис по поиску авиабилетов.\n\nНа курсе «Разработка Android-приложений» Вы:\n\n- Научитесь с нуля создавать мобильные приложения под Android и программировать на Java и Kotlin.\n\n- Получите знания и навыки, необходимые для создания проектов уровня middle-специалиста.\n\n- Сможете самостоятельно проектировать логику работы мобильного приложения, настраивать среду приложений и другие ключевые события.\n\n📆 Продолжительность курса: 6 месяцев.\n\n💰 Стоимость курса: 1 000 000 сум/месяц.").format(kurs_ru[int(id)-1]),reply_markup=joinru)
             elif data[1]=='2':
                 await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Backend-разработчик - это специалист, который занимается программно-административной частью веб-приложения, внутренним содержанием системы, серверными технологиями — базой данных, архитектурой, программной логикой.\n\n⚡️ Вы изучите Python: это высокоуровневый язык программирования. А также освоите самые важные бэкэнд-инструменты: Django, Базы данных и Git.\n\n📆 Продолжительность курса: 6 месяцев.\n\n💰 Стоимость курса: 1 000 000 сум/месяц.").format(kurs_ru[int(id)-1]),reply_markup=joinru)
             elif data[1]=='3':
@@ -191,6 +189,9 @@ async def course(call: CallbackQuery, state:FSMContext):
                 await state.finish()
                 await Anketa.main.set()
             else:
+                await state.update_data(
+                        {'center':filial_uz[int(data[1])-1]}
+                        )
                 file_path = InputFile(path_or_bytesio=f'images/center/{data[1]}.jpg')
                 if data[1]=='1':
                     await call.message.answer_photo(file_path,("<b>🏢 {}</b>\n\n📍 Manzil: Maxtumquli ko‘chasi, 1A uy, IT Park Tashkent binosi.\n\n📌 Mo‘ljal: Muhammad al-Xorazmiy nomidagi ixtisoslashtirilgan IT-maktab.\n\n<b>📞 Tel</>: +998 99 309-11-99\n\n<a href='https://yandex.uz/maps/-/CCU5nFuESB'>🔗 IT-Markaz xaritada</a>").format(filial_uz[int(data[1])-1]),reply_markup=courses)
@@ -204,12 +205,8 @@ async def course(call: CallbackQuery, state:FSMContext):
                     await call.message.answer_photo(file_path,("<b>🏢 IT Center - {}</b>\n\n📍 Manzil: Sho‘ta Rustaveli ko‘chasi, 17, Barkamol avlod binosi.\n\n📌 Mo‘ljal: Grand Mir mehmonxonasi.\n\n<b>📞 Tel</>: +998 99 107-11-99\n\n<a href='https://yandex.uz/maps/-/CCU5nFh6SB'>🔗 IT-Markaz xaritada</a>").format(filial_uz[int(data[1])-1]),reply_markup=courses)
                 elif data[1]=='6': 
                     await call.message.answer_photo(file_path,("<b>🏢 IT Center - {}</b>\n\n📍 Manzil: Yuqori Chirchiq koʻchasi, 43.\n\n<b>📞 Tel</>: +998 99 127-11-99\n\n<a href='https://yandex.uz/maps/-/CCU5nFhs-B'>🔗 IT-Markaz xaritada</a>").format(filial_uz[int(data[1])-1]),reply_markup=courses)
-                
-                await state.update_data(
-                        {'center':filial_uz[int(data[1])-1]}
-                        )
                 await call.answer(cache_time=0.02)
-                await state.finish()
+                # await state.finish()
                 await Anketa.course.set()
         else:
             if data[1]=='0':
@@ -219,17 +216,17 @@ async def course(call: CallbackQuery, state:FSMContext):
             else:
                 file_path = InputFile(path_or_bytesio=f'images/center/{data[1]}.jpg')
                 if data[1]=='1':
-                    await call.message.answer_photo(file_path,("<b>🏢 {} </b>\n\n📍 Адрес: Ташкент, ул. Махтумкули, 1A, здание IT Park Tashkent\n\n📌 Ориентир: Специализированная IT-школа имени Аль-Хорезми\n\n<b>📞 Тел:</b> +998 99 309-11-99\n\nЛокация: <a href='https://yandex.uz/maps/-/CCU5nFuESB'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
+                    await call.message.answer_photo(file_path,("<b>🏢 {} </b>\n\n📍 Адрес: улица Махтумкули, 1A, здание IT Park Tashkent\n\n📌 Ориентир: Специализированная IT-школа имени Аль-Хорезми\n\n<b>📞 Тел:</b> +998 99 309-11-99\n\n<a href='https://yandex.uz/maps/-/CCU5nFuESB'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
                 elif data[1]=='2':
-                    await call.message.answer_photo(file_path,("<b>🏢 IT Center - {} </b>\n\n📍 Адрес: Мирзо-Улугбекский район, Карасу-4, 6А, школа №121\n\n<b>📞 Тел:</b> +998 99 180-11-99\n\nЛыокация: <a href='https://yandex.uz/maps/-/CCU5nFqgwD'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
+                    await call.message.answer_photo(file_path,("<b>🏢 IT Center - {} </b>\n\n📍 Адрес: Карасу-4, 6А, Школа №121\n\n<b>📞 Тел:</b> +998 99 180-11-99\n\nЛыокация: <a href='https://yandex.uz/maps/-/CCU5nFqgwD'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
                 elif data[1]=='3':
-                    await call.message.answer_photo(file_path,("<b>🏢 IT Center - {} </b>\n\n📍 Адрес: Чиланзарский хокимият, здание общественного центра\n\n📌 Ориентир: Mетро Чиланзар\n\n<b>📞 Тел:</b> +998 99 177-11-99\n\nЛокация: <a href='https://yandex.uz/maps/-/CCU5nFdO0C'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
+                    await call.message.answer_photo(file_path,("<b>🏢 IT Center - {} </b>\n\n📍 Адрес: Чиланзарский хокимият, здание общественного центра\n\n📌 Ориентир: Mетро Чиланзар\n\n<b>📞 Тел:</b> +998 99 177-11-99\n\n<a href='https://yandex.uz/maps/-/CCU5nFdO0C'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
                 elif data[1]=='4':
-                    await call.message.answer_photo(file_path,("<b>🏢 IT Center - {} </b>\n\n📍 Адрес: Сергели-4, 34,\n\n<b>📞 Тел:</b> +998 99 137-11-99\n\nЛокация: <a href='https://yandex.uz/maps/-/CCU5nFhIXD'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
+                    await call.message.answer_photo(file_path,("<b>🏢 IT Center - {} </b>\n\n📍 Адрес: Сергели-4, 34,\n\n<b>📞 Тел:</b> +998 99 137-11-99\n\n<a href='https://yandex.uz/maps/-/CCU5nFhIXD'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
                 elif data[1]=='5':
-                    await call.message.answer_photo(file_path,("<b>🏢 IT Center - {} </b>\n\n📍 Адрес: ул. Шота Руставели, 17, здание «Баркамол авлод».\n\n📌 Ориентир: Школа №25, гостиница Grand Mir.\n\n<b>📞 Тел:</b> +998 99 107-11-99\n\nЛокация: <a href='https://yandex.uz/maps/-/CCU5nFh6SB'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
+                    await call.message.answer_photo(file_path,("<b>🏢 IT Center - {} </b>\n\n📍 Адрес: ул. Шота Руставели, 17, здание «Баркамол авлод».\n\n📌 Ориентир: Школа №25, гостиница Grand Mir.\n\n<b>📞 Тел:</b> +998 99 107-11-99\n\n<a href='https://yandex.uz/maps/-/CCU5nFh6SB'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
                 elif data[1]=='6':
-                    await call.message.answer_photo(file_path,("<b>🏢 IT Center - {} </b>\n\n📍 Адрес: ул. Юкори Чирчик, 43\n\n<b>📞 Тел:</b> +998 99 127-11-99\n\nЛокация: <a href='https://yandex.uz/maps/-/CCU5nFhs-B'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
+                    await call.message.answer_photo(file_path,("<b>🏢 IT Center - {} </b>\n\n📍 Адрес: ул. Юкори Чирчик, 43\n\n<b>📞 Тел:</b> +998 99 127-11-99\n\n<a href='https://yandex.uz/maps/-/CCU5nFhs-B'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
             
                 await state.update_data(
                         {'center':filial_ru[int(data[1])-1]}
@@ -245,7 +242,6 @@ async def course(call: CallbackQuery, state:FSMContext):
     data = call.data.split('_')
     ss = await state.get_data()
     if user_l.language == 'uz':
-        print(data[1])
         if data[1]=='0':
             await call.message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
             await state.finish()
@@ -256,7 +252,7 @@ async def course(call: CallbackQuery, state:FSMContext):
                     'id':data[1]}
                     )
             if not ss.get('center'):
-                file_path = InputFile(path_or_bytesio=f'images/center/1.jpg')
+                file_path = InputFile(path_or_bytesio=f'images/centers.jpg')
                 if user_l.language == 'uz':
                     await call.message.answer_photo(file_path,"Iltimos, o‘zingizga qulay bo‘lgan IT-Markazini tanlang 👇",reply_markup=centerKey)
                 else:
@@ -264,29 +260,27 @@ async def course(call: CallbackQuery, state:FSMContext):
                 await Anketa.center.set()
                 return
             else:
-                #Fixed
-                # id = ss.get('id')
-                file_path = InputFile(path_or_bytesio=f'images/{data[1]}.jpg')
+                id = data[1]
+                file_path = InputFile(path_or_bytesio=f'images/uz/{data[1]}.jpg')
                 if data[1]=='1':
-                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Android ilovasini ishlab chiqing va uni Google Play-ga joylashtiring, hatto ilgari hech qachon dasturlashdan xabaringiz bo‘lmagan bo‘lsa ham. Kurs davomida siz Java va Kotlin tillarini, jamoaviy ishlanmalarni, materiallar dizaynini va sinov tamoyillarini o‘zlashtirasiz.\n\n📆 Kurs davomiyligi: 6-8 oy.\n\n💰 Kursning narxi: 600 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Android ilovasini ishlab chiqing va uni Google Play-ga joylashtiring, hatto ilgari hech qachon dasturlashdan xabaringiz bo‘lmagan bo‘lsa ham. Kurs davomida siz Java va Kotlin tillarini, jamoaviy ishlanmalarni, materiallar dizaynini va sinov tamoyillarini o‘zlashtirasiz.\n\n📆 Kurs davomiyligi: 6-8 oy.\n\n💰 Kursning narxi: 1 000 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
                 elif data[1]=='2':
-                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Backend dasturchisi web-saytlar uchun backend yaratadi: so‘rovlarni qabul qiladigan, ma'lumotlar bazasi bilan aloqa o‘rnatadigan va ma'lumotlarni foydalanuvchiga uzatadigan dasturchidir. Dasturchi, saytning boshqa Internet xizmatlari bilan o‘zaro aloqasi uchun algoritmlarni ishlab chiqadi. Siz Python tilini o‘rganasiz: u talabga ega va sodda tildir. Shuningdek, siz eng muhim backend vositalarini o‘zlashtirasiz: Django, ma'lumotlar bazalari, git. O‘qitish jarayonida bir nechta operatsion xizmatlarni yaratasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 600 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Backend dasturchisi web-saytlar uchun backend yaratadi: so‘rovlarni qabul qiladigan, ma'lumotlar bazasi bilan aloqa o‘rnatadigan va ma'lumotlarni foydalanuvchiga uzatadigan dasturchidir. Dasturchi, saytning boshqa Internet xizmatlari bilan o‘zaro aloqasi uchun algoritmlarni ishlab chiqadi. Siz Python tilini o‘rganasiz: u talabga ega va sodda tildir. Shuningdek, siz eng muhim backend vositalarini o‘zlashtirasiz: Django, ma'lumotlar bazalari, git. O‘qitish jarayonida bir nechta operatsion xizmatlarni yaratasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 1 000 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
                 elif data[1]=='3':
-                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Web-dasturlash (Frontend) kursining maqsadi, web-ilovalarning vizual tomonini ishlab chiqish bilan tanishish, va junior dasturchi bo‘lish uchun zarur bo‘lgan to‘liq bilim va ko‘nikmalarni taqdim etishdir.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 600 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Web-dasturlash (Frontend) kursining maqsadi, web-ilovalarning vizual tomonini ishlab chiqish bilan tanishish, va junior dasturchi bo‘lish uchun zarur bo‘lgan to‘liq bilim va ko‘nikmalarni taqdim etishdir.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 800 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
                 elif data[1]=='4':
-                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Kursning maqsadi - grafik dasturlar orqali murakkab rasmlar va kontent yaratish, o‘quvchilarning kreativ yaratuvchanlik qobiliyatini oshirish, Adobe Photoshop, Adobe Illustrator va Corel Draw kabi dasturlarini professional darajada o‘zlashtirishdir.\n\n📆 Kurs davomiyligi: 5 oy.\n\n💰 Kursning narxi: 600 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Kursning maqsadi - grafik dasturlar orqali murakkab rasmlar va kontent yaratish, o‘quvchilarning kreativ yaratuvchanlik qobiliyatini oshirish, Adobe Photoshop, Adobe Illustrator va Corel Draw kabi dasturlarini professional darajada o‘zlashtirishdir.\n\n📆 Kurs davomiyligi: 5 oy.\n\n💰 Kursning narxi: 800 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
                 elif data[1]=='5':
-                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n🤖 Robototexnika kurslari bolalarning amaliy bilim olishiga qaratilgan.\n\nUshbu kursda o‘quvchilar Lego yoki o‘yinchoqlar o‘ynashmaydi. Ular murakkab elektron qurilmalarni (termostat, avtomatik sug‘orish, aqlli uy) dasturlash, shuningdek, Arduino Kit asosida robotlar yasashni o‘rganishadi.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 600 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n🤖 Robototexnika kurslari bolalarning amaliy bilim olishiga qaratilgan.\n\nUshbu kursda o‘quvchilar Lego yoki o‘yinchoqlar o‘ynashmaydi. Ular murakkab elektron qurilmalarni (termostat, avtomatik sug‘orish, aqlli uy) dasturlash, shuningdek, Arduino  asosida robotlar yasashni o‘rganishadi.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 500 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
                 elif data[1]=='6':
-                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 SMM (Social media marketing) kurs davomida sizga ijtimoiy tarmoqlarda brendni tanitish, kontent yaratish, va targeting kabi ko‘plab sohaga oid bilim va ko‘nikmalarga ega bo‘lish. Bundan tashqari, sizda real loyihalar bilan ishlab malaka oshirish imkoniyati mavjud bo‘ladi.\n\n📆 Kurs davomiyligi: 3 oy.\n\n💰 Kursning narxi: 600 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 SMM (Social media marketing) kurs davomida sizga ijtimoiy tarmoqlarda brendni tanitish, kontent yaratish, va targeting kabi ko‘plab sohaga oid bilim va ko‘nikmalarga ega bo‘lish. Bundan tashqari, sizda real loyihalar bilan ishlab malaka oshirish imkoniyati mavjud bo‘ladi.\n\n📆 Kurs davomiyligi: 3 oy.\n\n💰 Kursning narxi: 1 000 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
                 elif data[1]=='7':
-                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Siz ma'lumotlarni to‘plash va tahlil qilishni, ko‘plab ma'lumotlardan muhim ma'lumotlarni ajratib olishni o‘rganasiz: sharhlar, prognozlar, tadqiqot natijalari. Bu korxonalarga asosli qarorlar qabul qilishda yordam beradi: g’oyalar yaratish, mahsulotlarni ishga tushirish, jarayonlarni yaxshilash, ishlab chiqishni rejalashtirish.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 600 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Scratch bolalarni dasturlashga olib kiradigan dasturdir. Oʻquvchilar ushbu dastur yordamida oʻzlarini vizual dasturlash muhitida sinab koʻrishadi. Qolaversa Scratch+IT English kursi ikki qismga boʻlinib, o’quvchilar darsning birinchi qismida Ingliz tilini, ikkinchi qismida Scratchni oʻrganishadilar. Dastur toʻliq amaliyotga asoslangan: har bir darsdan soʻng amaliy mashqlar, qiziqarli fikr-mulohazalarga boy boʻladi.\n\n📆 Kurs davomiyligi: 3 oy.\n\n💰 Kursning narxi: 1 000 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
                 elif data[1]=='8':
-                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 IT-English kursi xalqaro miqyosida tan olingan standartlarga muvofiq, innovatsion usulda bo‘lib o‘tadi. Siz CEFR va IELTS imtihonlaridan muvaffaqiyatli o‘tishingiz uchun innovatsion tayyorgarlikka ega bo‘lasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 600 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
+                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 IT-English kursi xalqaro miqyosida tan olingan standartlarga muvofiq, innovatsion usulda bo‘lib o‘tadi. Siz CEFR va IELTS imtihonlaridan muvaffaqiyatli o‘tishingiz uchun innovatsion tayyorgarlikka ega bo‘lasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 460 000 so‘m/oy").format(kurs_uz[int(id)-1]),reply_markup=join)
                 await call.answer(cache_time=0.02)
                 await Anketa.choice.set()
     else:
-        print(data[1])
         if data[1]=='0':
             await call.message.answer('Пожалуйста, выберите следующий шаг в разделе меню!',reply_markup=main_manuru)
             await state.finish()
@@ -297,7 +291,7 @@ async def course(call: CallbackQuery, state:FSMContext):
             'id':data[1]}
             )
             if not ss.get('center'):
-                file_path = InputFile(path_or_bytesio=f'images/center/1.jpg')
+                file_path = InputFile(path_or_bytesio=f'images/centers.jpg')
                 if user_l.language == 'uz':
                     await call.message.answer_photo(file_path,"📍 Iltimos, o‘zingizga qulay bo‘lgan <b>IT-Markaz</b>ni tanlang 👇",reply_markup=centerKey)
                 else:
@@ -305,11 +299,10 @@ async def course(call: CallbackQuery, state:FSMContext):
                 await Anketa.center.set()
                 return
             else:
-                print(ss.get('course'))
                 id = data[1]
-                file_path = InputFile(path_or_bytesio=f'images/{data[1]}.jpg')
+                file_path = InputFile(path_or_bytesio=f'images/ru/{data[1]}.jpg')
                 if data[1]=='1':
-                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Android — самая популярная мобильная платформа в мире.\n\nAndroid-разработчики нужны в разных сферах: сделать онлайн-банкинг со сложной степенью защиты или приложение для интернет-магазина, разработать приложения для изучения английского языка или мобильный сервис по поиску авиабилетов.\n\nНа курсе «Разработка Android-приложений» Вы:\n\n- Научитесь с нуля создавать мобильные приложения под Android и программировать на Java и Kotlin.\n\n- Получите знания и навыки, необходимые для создания проектов уровня middle-специалиста.\n\n- Сможете самостоятельно проектировать логику работы мобильного приложения, настраивать среду приложений и другие ключевые события.\n\n📆 Продолжительность курса: 6 месяцев.\n\n💰 Стоимость курса: 1 000 000 сум/месяц.").format(kurs_ru[int(id)-1]),reply_markup=joinru)
+                    await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Android — самая популярная мобильная платформа в мире.\n\nAndroid-разработчики нужны в разных сферах: для разработки онлайн-банкинга со сложной степенью защиты или приложений для интернет-магазинов,  изучения иностранных языков или мобильного сервиса по заказу и доставки еды/товаров.\n\nНа курсе «Разработка Android-приложений» Вы:\n\n- Научитесь с нуля создавать мобильные приложения под Android и программировать на Java и Kotlin.\n\n- Получите знания и навыки, необходимые для создания проектов уровня middle-специалиста.\n\n- Сможете самостоятельно проектировать логику работы мобильного приложения, настраивать среду приложений и другие ключевые события.\n\n📆 Продолжительность курса: 6 месяцев.\n\n💰 Стоимость курса: 1 000 000 сум/месяц.").format(kurs_ru[int(id)-1]),reply_markup=joinru)
                 elif data[1]=='2':
                     await call.message.answer_photo(file_path,caption=("<b>📌 {}</b>\n\n👨‍💻 Backend-разработчик это специалист, который занимается программно-административной частью веб-приложения, внутренним содержанием системы, серверными технологиями — базой данных, архитектурой, программной логикой.\n\n⚡️ Вы изучите Python: это высокоуровневый язык программирования. А также освоите самые важные бэкэнд-инструменты: Django, Базы данных и Git.\n\n📆 Продолжительность курса: 6 месяцев.\n\n💰 Стоимость курса: 1 000 000 сум/месяц.").format(kurs_ru[int(id)-1]),reply_markup=joinru)
                 elif data[1]=='3':
@@ -334,7 +327,7 @@ async def other(call: CallbackQuery, state:FSMContext):
     await call.message.delete()
     if user_l.language == 'uz':
         if call.data=='1':
-            file_path = InputFile(path_or_bytesio=f'images/center/1.jpg')
+            file_path = InputFile(path_or_bytesio=f'images/centers.jpg')
             await call.message.answer_photo(file_path,"📍 Iltimos, o‘zingizga qulay bo‘lgan <b>IT-Markaz</b>ni tanlang 👇",reply_markup=centerKey)
             await Anketa.center.set()
         else:
@@ -343,7 +336,7 @@ async def other(call: CallbackQuery, state:FSMContext):
             await Anketa.main.set()
     else:
         if call.data=='1':
-            file_path = InputFile(path_or_bytesio=f'images/center/1.jpg')
+            file_path = InputFile(path_or_bytesio=f'images/centers.jpg')
             await call.message.answer_photo(file_path,"📍 Пожалуйста, выберите удобный для Вас <b>IT-Центр</b> 👇",reply_markup=centerKeyru)
             await Anketa.center.set()
         else:
@@ -388,7 +381,7 @@ async def full_name(message: types.Message,state:FSMContext):
         await message.delete()
         a = await message.answer('.',reply_markup=ReplyKeyboardRemove())
         await a.delete()
-        file_path = InputFile(path_or_bytesio=f'images/center/1.jpg')
+        file_path = InputFile(path_or_bytesio=f'images/centers.jpg')
         if user_l.language == 'uz':
             await message.answer_photo(file_path,"📍 Iltimos, o‘zingizga qulay bo‘lgan <b>IT-Markaz</b>ni tanlang 👇",reply_markup=centerKey)
         else:
@@ -507,12 +500,10 @@ async def skip(message:types.Message,state:FSMContext):
         a = await message.answer('.',reply_markup=ReplyKeyboardRemove())
         await a.delete()
         try:
-            await state.update_data(
-            {'age':message.text})
+            await state.update_data({'age':message.text})
             image = data.get('id')
-            file_path = InputFile(path_or_bytesio=f'images/{image}.jpg')
             if user_l.language == 'uz':
-                print(data.get('jins'),data.get('jins')=='Ayol')
+                file_path = InputFile(path_or_bytesio=f'images/uz/{image}.jpg')
                 if data.get('jins')=='Ayol':
                     await message.answer_photo(file_path,_("\n📃 <b>F.I.SH.:</b> {} \n👫 <b>Jins:</b> {} \n📅 <b>Yosh:</b> {}\n🏢 <b>IT Center:</b> {}\n🖥 <b>Kurs:</b> {}\n📞 <b>Tel:</b> +{}\n\nQo‘shimcha savollaringiz mavjudmi? Unday holda bizning Call-markazimiga murojaat qiling.\n Tel: +998 99 309-11-99").format(data.get('full_name'),data.get('jins'),message.text,data.get("center"),data.get('course'),data.get('phone')))
                     
@@ -521,7 +512,7 @@ async def skip(message:types.Message,state:FSMContext):
                 await message.answer("Iltimos, yuqoridagi ma’lumotlarizni tekshiring va <b>«Tasdiqlash»</b> tugmasini bosing.",reply_markup=confirmationKeyboard)
                 await Anketa.confirm.set()
             else:
-                print(data.get('jins'),data.get('jins')=='Женский')
+                file_path = InputFile(path_or_bytesio=f'images/ru/{image}.jpg')
                 if data.get('jins')=='Женский':
                     await message.answer_photo(file_path,("\n📃 <b>ФИО:</b> {} \n👫 <b>Пол:</b> {} \n📅 <b>Возраст:</b> {}\n🏢 <b>IT-Центр:</b> {}\n🖥 <b>Курс:</b> {}\n📞 <b>Тел.:</b> +{}\n\nУ вас есть дополнительные вопросы? В таком случае обращайтесь в наш Call-центр.\n Тел: +998 99 309-11-99").format(data.get('full_name'),data.get('jins'),message.text,data.get("center"),data.get('course'),data.get('phone')))
                     
@@ -542,12 +533,14 @@ async def confirm(call:types.CallbackQuery, state: FSMContext):
     if call.data=='1':
         data = await state.get_data()
         image = data.get('id')
-        file_image = open(f'{BASE_DIR}/images/{image}.jpg','rb')
-        await bot.send_photo(chat_id=GROUP[0],photo=file_image,caption=_("\n📃 <b>F.I.SH.:</b> {} \n👫 <b>Jins:</b> {} \n📅 <b>Yosh:</b> {}\n🏢 <b>IT Center:</b> {}\n🖥 <b>Kurs:</b> {}\n📞 <b>Tel:</b> +{}\n\nSizda qo‘shimcha savollar mavjudmi? Unday holda bizning Call-markazimiga murojaat qiling.\n Tel: +998 99 309-11-99").format(data.get('full_name'),data.get('jins'),data.get("age"),data.get("center"),data.get('course'),data.get('phone')))
     if user_l.language == 'uz':
+        file_image = open(f'{BASE_DIR}/images/uz/{image}.jpg','rb')
         await call.message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
-    else:    
+    else:
+        file_image = open(f'{BASE_DIR}/images/ru/{image}.jpg','rb')
         await call.message.answer('Пожалуйста, выберите следующий шаг в разделе меню!',reply_markup=main_manuru)
+    
+    await bot.send_photo(chat_id=GROUP[0],photo=file_image,caption=_("\n📃 <b>F.I.SH.:</b> {} \n👫 <b>Jins:</b> {} \n📅 <b>Yosh:</b> {}\n🏢 <b>IT Center:</b> {}\n🖥 <b>Kurs:</b> {}\n📞 <b>Tel:</b> +{}\n\nSizda qo‘shimcha savollar mavjudmi? Unday holda bizning Call-markazimiga murojaat qiling.\n Tel: +998 99 309-11-99").format(data.get('full_name'),data.get('jins'),data.get("age"),data.get("center"),data.get('course'),data.get('phone')))
     await state.finish()
     await Anketa.main.set()
 
