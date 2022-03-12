@@ -15,9 +15,9 @@ coursesru = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text='🖥 Веб программирование', callback_data='course_3')],
         [InlineKeyboardButton(text='💻 Backend программирование', callback_data="course_2")],
-        [InlineKeyboardButton(text='👨🏻‍💻 Создание Android приложений', callback_data='course_1')],
+        [InlineKeyboardButton(text='📲 Создание Android приложений', callback_data='course_1')],
         [InlineKeyboardButton(text='🤖 Мобильная робототехника', callback_data='course_5')],
-        [InlineKeyboardButton(text='💠 Графический и веб-дизайн', callback_data='course_4')],
+        [InlineKeyboardButton(text='🎨 Графический и веб-дизайн', callback_data='course_4')],
         [InlineKeyboardButton(text='🇺🇸 IT-English', callback_data='course_8')], 
         [InlineKeyboardButton(text='👩‍💻 SMM-менеджер', callback_data='course_6')],
         [InlineKeyboardButton(text='🧩 Scratch + IT English', callback_data='course_7')],
