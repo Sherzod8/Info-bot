@@ -22,7 +22,7 @@ courses = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text='🖥 Web dasturlash (Frontend)', callback_data='course_3')],
         [InlineKeyboardButton(text='💻 Backend dasturlash', callback_data="course_2")],
-        [InlineKeyboardButton(text='👨🏻‍💻 Android ilovalarni yaratish', callback_data='course_1')],
+        [InlineKeyboardButton(text='📲 Android ilovalarni yaratish', callback_data='course_1')],
         [InlineKeyboardButton(text='🤖 Mobil robototexnika', callback_data='course_5')],
         [InlineKeyboardButton(text='💠 Grafik va web dizayn', callback_data='course_4')],
         [InlineKeyboardButton(text='🇺🇸 IT-English', callback_data='course_8')],   
