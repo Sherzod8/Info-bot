@@ -537,10 +537,10 @@ async def confirm(call:types.CallbackQuery, state: FSMContext):
         data = await state.get_data()
         image = data.get('id')
     if user_l.language == 'uz':
-        file_image = UZ[image]
+        file_image = UZ[int(image)]
         await call.message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
     else:
-        file_image = RU[image]
+        file_image = RU[int(image)]
         await call.message.answer('Пожалуйста, выберите следующий шаг в разделе меню!',reply_markup=main_manuru)
     
     await bot.send_photo(chat_id=GROUP[0],photo=file_image,caption=_("\n📃 <b>F.I.SH.:</b> {} \n👫 <b>Jins:</b> {} \n📅 <b>Yosh:</b> {}\n🏢 <b>IT Center:</b> {}\n🖥 <b>Kurs:</b> {}\n📞 <b>Tel:</b> +{}\n\nSizda qo‘shimcha savollar mavjudmi? Unday holda bizning Call-markazimiga murojaat qiling.\n Tel: +998 99 309-11-99").format(data.get('full_name'),data.get('jins'),data.get("age"),data.get("center"),data.get('course'),data.get('phone')))
