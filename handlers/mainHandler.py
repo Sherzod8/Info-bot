@@ -193,7 +193,8 @@ async def course(call: CallbackQuery, state:FSMContext):
                 await state.update_data(
                         {'center':filial_uz[int(data[1])-1]}
                         )
-                file_path = InputFile(path_or_bytesio=f'images/center/{data[1]}.jpg')
+                # file_path = InputFile(path_or_bytesio=f'images/center/{data[1]}.jpg')
+                id = int(data[1])
                 if data[1]=='1':
                     await call.message.answer_photo(photo=CENTER[id],caption=("<b>🏢 {}</b>\n\n📍 Manzil: Maxtumquli ko‘chasi, 1A, IT Park Tashkent binosi.\n\n📌 Mo‘ljal: Muhammad al-Xorazmiy nomidagi ixtisoslashtirilgan IT-maktab.\n\n<b>📞 Tel</>: +998 99 309-11-99\n\n<a href='https://yandex.uz/maps/-/CCU5nFuESB'>🔗 IT-Markaz xaritada</a>").format(filial_uz[int(data[1])-1]),reply_markup=courses)
                 elif data[1]=='2':
@@ -215,7 +216,8 @@ async def course(call: CallbackQuery, state:FSMContext):
                 await state.finish()
                 await Anketa.main.set()
             else:
-                file_path = InputFile(path_or_bytesio=f'images/center/{data[1]}.jpg')
+                # file_path = InputFile(path_or_bytesio=f'images/center/{data[1]}.jpg')
+                id = int(data[1])
                 if data[1]=='1':
                     await call.message.answer_photo(photo=CENTER[id],caption=("<b>🏢 {} </b>\n\n📍 Адрес: улица Махтумкули, 1A, здание IT Park Tashkent\n\n📌 Ориентир: Специализированная IT-школа имени Аль-Хорезми.\n\n<b>📞 Тел:</b> +998 99 309-11-99\n\n<a href='https://yandex.uz/maps/-/CCU5nFuESB'>🔗 IT-Центр на карте</a>").format(filial_ru[int(data[1])-1]),reply_markup=coursesru)
                 elif data[1]=='2':
