@@ -80,7 +80,8 @@ async def course(message: Message, state:FSMContext):
             await message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
             await Anketa.main.set()
         else:
-            await bot.send_message(chat_id=GROUP[0],text=f"Username: {user.username}\nTelegram_id: {user.id}\n\n{message.text}")
+            await bot.send_message(chat_id=GROUP[0],text=f"<b>Username:</b> {user.username}\n<b>Telegram_id:</b> {user.id}\n\n<b>Xabar matni:</b> {message.text}")
+            await bot.send_message(chat_id=ADMINS[0],text=f"<b>Username:</b> {user.username}\n<b>Telegram_id:</b> {user.id}\n\n<b>Xabar matni:</b> {message.text}")
     else:
         if message.text=='⬅️ Назад':
             await message.delete()
@@ -89,7 +90,7 @@ async def course(message: Message, state:FSMContext):
             await message.answer('Пожалуйста, выберите следующий шаг в разделе меню!',reply_markup=main_manuru)
             await Anketa.main.set()
         else:
-            await bot.send_message(chat_id=GROUP[0],text=f"Username: {user.username}\nTelegram_id: {user.id}\n\n{message.text}")
+            await bot.send_message(chat_id=GROUP[0],text=f"<b>Username:</b> {user.username}\n<b>Telegram_id:</b> {user.id}\n\n<b>Xabar matni:</b> {message.text}")
 
 @dp.callback_query_handler(state=Anketa.center)
 async def course(call: CallbackQuery, state:FSMContext):
