@@ -344,6 +344,16 @@ async def choice(call: CallbackQuery, state:FSMContext):
 
     #----------- Yangi qo'shildi centerni tekshirish ----------
     ss = await state.get_data()
+
+    if call.data == '0':
+        if user_l.language == 'uz':
+            await call.message.answer_photo(photo=OUR_COURCE,caption="🚀 Yuqori malakali IT-mutaxassis bo‘lishni, dasturlash tillarini o‘rganishni yoki IT-sohasida o‘z malakangizni oshirishni xohlaysizmi? Bunday holda, IT Center PRO`ning o‘quv kurslari, siz uchun eng yaxshi va optimal yechim bo‘la oladi!\n\n💥 Bizning tajribali o‘qituvchilarimiz sizga IT-industriyasining barcha yo‘nalishlari bo‘yicha kerakli bo‘lgan bilim va ko‘nikmalarni berishadi va zamonaviy IT-kompaniyalarda munosib ish topishingizga ko‘maklashishadi.\n\n⚡️ O‘zingizni qiziqtirgan yo‘nalish bo‘yicha kurslarni tanlang va ro‘yxatdan o‘ting.👇👇👇",reply_markup=courses)
+        else:
+            await call.message.answer_photo(photo=OUR_COURCE,caption="🚀 Хотите стать высококвалифицированным IT-специалистом, изучать языки программарования или повысить свою квалификацию в IT-сфере? В таком случаи, курсы от IT Center PRO, это, пожалуй, лучшее и оптимальное решение для Вас! 🤔\n\n💥 Наши опытные наставники дадут Вам необходимые знания во всех направлениях IT-индустрии и помогут найти достойную работу в современных IT-компаниях.\n\n⚡️ Выберите курс по интересующему Вас направлению и зарегистрируйтесь по кнопке ниже 👇👇👇",reply_markup=coursesru)
+        await state.finish()
+        await Anketa.course.set()
+        return
+
     if not ss.get('center'):
         if user_l.language == 'uz':
             await call.message.answer_photo(photo=CENTERS,caption="Iltimos, o‘zingizga qulay bo‘lgan IT-Markazini tanlang 👇",reply_markup=centerKey)
@@ -361,7 +371,7 @@ async def choice(call: CallbackQuery, state:FSMContext):
             await call.message.answer("Iltimos, to‘liq ismingizni kiriting",reply_markup=back)
             await Anketa.full_name.set()
         elif call.data=='0':
-            await call.message.answer_photo(photo=CENTERS,caption="📍 Iltimos, o‘zingizga qulay bo‘lgan <b>IT-Markaz</b>ni tanlang 👇",reply_markup=courses)
+            await call.message.answer_photo(photo=CENTERS,caption="📍 Iltimos, o‘zingizga qulay bo‘lgan <b>IT-Markaz</b>ni tanlang 👇",reply_markup=centerKey)
             await Anketa.course.set()
             await state.update_data({
                 'center':''
@@ -372,7 +382,7 @@ async def choice(call: CallbackQuery, state:FSMContext):
             await call.message.answer("Пожалуйста, введите своё полное имя",reply_markup=backru)
             await Anketa.full_name.set()
         elif call.data=='0':
-            await call.message.answer_photo(photo=CENTERS,caption="📍 Пожалуйста, выберите удобный для Вас <b>IT-Центр</b> 👇",reply_markup=coursesru)
+            await call.message.answer_photo(photo=CENTERS,caption="📍 Пожалуйста, выберите удобный для Вас <b>IT-Центр</b> 👇",reply_markup=centerKeyru)
             await Anketa.course.set()
         await call.answer(cache_time=0.02)   
 
@@ -536,7 +546,6 @@ async def confirm(call:types.CallbackQuery, state: FSMContext):
         data = await state.get_data()
         image = data.get('id')
         if user_l.language == 'uz':
-            print(image,'############')
             file_image = UZ[int(image)]
             await call.message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
         else:
