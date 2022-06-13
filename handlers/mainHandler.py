@@ -80,7 +80,7 @@ async def course(message: Message, state:FSMContext):
             await message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
             await Anketa.main.set()
         else:
-            await bot.send_message(chat_id=GROUP[0],text=f"{message.text}")
+            await bot.send_message(chat_id=GROUP[0],text=f"Username: {user.username}\nTelegram_id: {user.id}\n\n{message.text}")
     else:
         if message.text=='⬅️ Назад':
             await message.delete()
@@ -89,7 +89,7 @@ async def course(message: Message, state:FSMContext):
             await message.answer('Пожалуйста, выберите следующий шаг в разделе меню!',reply_markup=main_manuru)
             await Anketa.main.set()
         else:
-            await bot.send_message(chat_id=GROUP[0],text=f"{message.text}")
+            await bot.send_message(chat_id=GROUP[0],text=f"Username: {user.username}\nTelegram_id: {user.id}\n\n{message.text}")
 
 @dp.callback_query_handler(state=Anketa.center)
 async def course(call: CallbackQuery, state:FSMContext):
@@ -101,8 +101,6 @@ async def course(call: CallbackQuery, state:FSMContext):
 
     # ---- Yangi if qo'shildi-----
     if ss.get('course') and ss.get('center'):
-        print('CENTER va COURSE BOR')
-        print(call.data)
         if user_l.language == 'uz':
             if call.data.split("_")[1]=='0':
                 await call.message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
@@ -249,14 +247,6 @@ async def course(call: CallbackQuery, state:FSMContext):
                     {'course':kurs_uz[int(data[1])-1],
                     'id':data[1]}
                     )
-            # if not ss.get('center'):
-            #     if user_l.language == 'uz':
-            #         await call.message.answer_photo(photo=CENTERS,caption="Iltimos, o‘zingizga qulay bo‘lgan IT-Markazini tanlang 👇",reply_markup=centerKey)
-            #     else:
-            #         await call.message.answer_photo(photo=CENTERS,caption="Пожалуйста, выберите удобный для Вас <b>IT-Центр</b> 👇",reply_markup=centerKeyru)
-            #     await Anketa.center.set()
-            #     return
-            # else:
             id = data[1]
             if id=='1':
                 await call.message.answer_photo(photo=UZ[int(id)],caption=("<b>📌 {}</b>\n\n📲 Android - dunyodagi eng mashhur mobil platformadir. Android dasturchilar turli sohalarda faoliyat yuritishadi. Misol uchun, murakkab himoya darajasiga ega bo‘lgan onlayn-banking va onlayn-do‘kon uchun platformalar, ingliz tilini o‘rganish yoki oziq-ovqatlarni yetkazib berish xizmati uchun mobil ilovalarni ishlab chiqish.\n\n«Android ilovalarini yaratish» kursida siz Android uchun mobil ilovalarni noldan yaratish, Java va Kotlin tillarida dasturlashni o‘rganasiz. Shuningdek, siz mustaqil ravishda mobil ilovalar logikasini ishlab chiqish va dasturlarning ishchi muhitini sozlashni amaliyotda qo‘llay olasiz.\n\n📆 Kurs davomiyligi: 6 oy.\n\n💰 Kursning narxi: 1 000 000 so‘m/oy.").format(kurs_uz[int(id)-1]),reply_markup=join)
@@ -286,14 +276,6 @@ async def course(call: CallbackQuery, state:FSMContext):
             {'course':kurs_ru[int(data[1])-1],
             'id':data[1]}
             )
-            # if not ss.get('center'):
-            #     if user_l.language == 'uz':
-            #         await call.message.answer_photo(photo=CENTERS,caption="📍 Iltimos, o‘zingizga qulay bo‘lgan <b>IT-Markaz</b>ni tanlang 👇",reply_markup=centerKey)
-            #     else:
-            #         await call.message.answer_photo(photo=CENTERS,caption="📍 Пожалуйста, выберите удобный для Вас <b>IT-Центр</b> 👇",reply_markup=centerKeyru)
-            #     await Anketa.center.set()
-            #     return
-            # else:
             id = data[1]
             if id=='1':
                 await call.message.answer_photo(photo=RU[int(id)],caption=("<b>📌 {}</b>\n\n📲 Android — самая популярная мобильная платформа в мире.\n\nAndroid-разработчики нужны в разных сферах: разработать онлайн-банкинг со сложной степенью защиты или приложение для интернет-магазина, приложения для изучения английского языка или мобильный сервис по доставке еды и продуктов.\n\nНа курсе «Разработка Android приложений» Вы:\n\n- Научитесь с нуля создавать мобильные приложения под Android и программировать на Java и Kotlin.\n\n- Получите знания и навыки, необходимые для создания проектов уровня middle-специалиста.\n\n- Сможете самостоятельно проектировать логику работы мобильных приложений, настраивать среду приложений и другие ключевые события.\n\n📆 Продолжительность курса: 6 месяцев.\n\n💰 Стоимость курса: 1 000 000 сум/месяц.").format(kurs_ru[int(id)-1]),reply_markup=joinru)
@@ -312,29 +294,7 @@ async def course(call: CallbackQuery, state:FSMContext):
             elif id=='8':
                 await call.message.answer_photo(photo=RU[int(id)],caption=("<b>📌 {}</b>\n\n🇺🇸 Курсы IT-English проходят инновационным образом в соответствии с международно-признанными стандартами. Вы получите инновационную подготовку для успешной сдачи экзаменов CEFR и IELTS.\n\n👩‍🏫 Более того, многие наши педагоги - высококвалифицированные специалисты с огромным опытом работы за рубежом.\n\n📆 Продолжительность каждого уровня: 3 месяца.\n\n💰 Стоимость курса: 460 000 сум/месяц.").format(kurs_ru[int(id)-1]),reply_markup=joinru)
             await call.answer(cache_time=0.02)
-            await Anketa.choice.set()
-
-# @dp.callback_query_handler(state=Anketa.other)
-# async def other(call: CallbackQuery, state:FSMContext):
-#     user = types.User.get_current()
-#     user_l = await db.get_user(str(user.id))
-#     await call.message.delete()
-#     if user_l.language == 'uz':
-#         if call.data=='1':
-#             await call.message.answer_photo(photo=CENTERS,caption="📍 Iltimos, o‘zingizga qulay bo‘lgan <b>IT-Markaz</b>ni tanlang 👇",reply_markup=centerKey)
-#             await Anketa.center.set()
-#         else:
-#             await call.message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
-#             await state.finish()
-#             await Anketa.main.set()
-#     else:
-#         if call.data=='1':
-#             await call.message.answer_photo(photo=CENTERS,caption="📍 Пожалуйста, выберите удобный для Вас <b>IT-Центр</b> 👇",reply_markup=centerKeyru)
-#             await Anketa.center.set()
-#         else:
-#             await call.message.answer('Пожалуйста, выберите следующий шаг в разделе меню!',reply_markup=main_manuru)
-#             await state.finish()
-#             await Anketa.main.set()        
+            await Anketa.choice.set()     
 
 @dp.callback_query_handler(state=Anketa.choice)
 async def choice(call: CallbackQuery, state:FSMContext):
@@ -350,7 +310,7 @@ async def choice(call: CallbackQuery, state:FSMContext):
             await call.message.answer_photo(photo=OUR_COURCE,caption="🚀 Yuqori malakali IT-mutaxassis bo‘lishni, dasturlash tillarini o‘rganishni yoki IT-sohasida o‘z malakangizni oshirishni xohlaysizmi? Bunday holda, IT Center PRO`ning o‘quv kurslari, siz uchun eng yaxshi va optimal yechim bo‘la oladi!\n\n💥 Bizning tajribali o‘qituvchilarimiz sizga IT-industriyasining barcha yo‘nalishlari bo‘yicha kerakli bo‘lgan bilim va ko‘nikmalarni berishadi va zamonaviy IT-kompaniyalarda munosib ish topishingizga ko‘maklashishadi.\n\n⚡️ O‘zingizni qiziqtirgan yo‘nalish bo‘yicha kurslarni tanlang va ro‘yxatdan o‘ting.👇👇👇",reply_markup=courses)
         else:
             await call.message.answer_photo(photo=OUR_COURCE,caption="🚀 Хотите стать высококвалифицированным IT-специалистом, изучать языки программарования или повысить свою квалификацию в IT-сфере? В таком случаи, курсы от IT Center PRO, это, пожалуй, лучшее и оптимальное решение для Вас! 🤔\n\n💥 Наши опытные наставники дадут Вам необходимые знания во всех направлениях IT-индустрии и помогут найти достойную работу в современных IT-компаниях.\n\n⚡️ Выберите курс по интересующему Вас направлению и зарегистрируйтесь по кнопке ниже 👇👇👇",reply_markup=coursesru)
-        await state.finish()
+        await state.finish() # Markazni tanlab kirib kelsa, centerni qayta tanlaydi
         await Anketa.course.set()
         return
 
