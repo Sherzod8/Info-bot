@@ -91,33 +91,6 @@ async def course(message: Message, state:FSMContext):
         else:
             await bot.send_message(chat_id=GROUP[0],text=f"{message.text}")
 
-@dp.message_handler(state=Anketa.send)
-async def course(message: Message, state:FSMContext):
-    user = types.User.get_current()
-    user_l = await db.get_user(str(user.id))
-    if user_l.language == 'uz':
-        if message.text=='⬅️ Ortga':
-            await message.delete()
-            await message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
-            await Anketa.main.set()
-        else:
-            a = await message.answer('.',reply_markup=ReplyKeyboardRemove())
-            await a.delete()
-            await bot.send_message(chat_id=GROUP[0],text=f"{message.text}")
-            await message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
-            await Anketa.main.set()
-    else:
-        if message.text=='⬅️ Назад':
-            await message.delete()
-            await message.answer('Пожалуйста, выберите следующий шаг в разделе меню!',reply_markup=main_manuru)
-            await Anketa.main.set()
-        else:
-            a = await message.answer('.',reply_markup=ReplyKeyboardRemove())
-            await a.delete()
-            await bot.send_message(chat_id=GROUP[0],text=f"{message.text}")
-            await message.answer('Пожалуйста, выберите следующий шаг в разделе меню!',reply_markup=main_manuru)
-            await Anketa.main.set()
-
 @dp.callback_query_handler(state=Anketa.center)
 async def course(call: CallbackQuery, state:FSMContext):
     user = types.User.get_current()
@@ -128,27 +101,31 @@ async def course(call: CallbackQuery, state:FSMContext):
 
     # ---- Yangi if qo'shildi-----
     if ss.get('course') and ss.get('center'):
+        print('CENTER va COURSE BOR')
+        print(call.data)
         if user_l.language == 'uz':
-            if call.data=='1':
-                await call.message.answer("Iltimos, to‘liq ismingizni kiriting",reply_markup=back)
-                await Anketa.full_name.set()
-            elif call.data=='0':
-                await call.message.answer_photo(photo=CENTERS,caption="📍 Iltimos, o‘zingizga qulay bo‘lgan <b>IT-Markaz</b>ni tanlang 👇",reply_markup=courses)
-                await Anketa.course.set()
-                await state.update_data({
-                    'center':f'{filial_uz[int(data[1])-1]}'
-                })
+            if call.data.split("_")[1]=='0':
+                await call.message.answer('Iltimos, menyu orqali keyingi qadamni tanlang!',reply_markup=main_manu)
+                await state.finish()
+                await Anketa.main.set()
+                return 
+            await call.message.answer("Iltimos, to‘liq ismingizni kiriting",reply_markup=back)
+            await Anketa.full_name.set()
+            await state.update_data({
+                'center':f'{filial_uz[int(data[1])-1]}'
+            })
             await call.answer(cache_time=0.02)
         else:
-            if call.data=='1':
-                await call.message.answer("Пожалуйста, введите своё полное имя",reply_markup=backru)
-                await Anketa.full_name.set()
-            elif call.data=='0':
-                await call.message.answer_photo(photo=CENTERS,caption="📍 Пожалуйста, выберите удобный для Вас <b>IT-Центр</b> 👇",reply_markup=coursesru)
-                await Anketa.course.set()
-                await state.update_data({
-                    'center':f'{filial_ru[int(data[1])-1]}'
-                })
+            if call.data.split("_")[1]=='0':
+                await call.message.answer('Пожалуйста, выберите следующий шаг в разделе меню!',reply_markup=main_manuru)
+                await state.finish()
+                await Anketa.main.set()
+                return
+            await call.message.answer("Пожалуйста, введите своё полное имя",reply_markup=backru)
+            await Anketa.full_name.set()
+            await state.update_data({
+                'center':f'{filial_ru[int(data[1])-1]}'
+            })
             await call.answer(cache_time=0.02)   
 
     elif ss.get('course'):
